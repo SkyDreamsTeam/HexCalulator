@@ -7,21 +7,30 @@
 
 int main()
 {
-    int n1, n2;
+    int n1, n2, res;
     /*std::cin >> n;
     std::cout << std::hex << 10 << '\n';
     std::cout << "Hello World!\n";*/
 
-    std::string inpStr;
-    std::cout << "Please input a hex string without the preceding 0x:";
-   
-   // std::cin >> inpStr;
-    scanf_s("%s", &inpStr);
+    std::string inpStrN1;
+    std::string inpStrN2;
+    std::string action;
+    std::cout << "Please input a hex expression without the preceding 0x:";
+    std::cin >> std::hex >> n1;
+    std::cin >> action;
+    std::cin >> std::hex >> n2;
+
+    std::stringstream ss1;
     std::stringstream ss2;
 
-    ss2 << std::hex << inpStr;
-    ss2 >> n1;
-    std::cout << "The value of 0x" << inpStr << " in hex is actually: " << std::dec << n1 << " in decimal\n";
+
+    if (action == "plus")
+        res = n1 + n2;
+    else
+        res = n1 - n2;
+    std::cout << "The first parameter: " << std::dec << n1 << " in decimal\n";
+    std::cout << "The second parameter: " << std::dec << n2 << " in decimal\n";
+    std::cout << std::hex << res;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
